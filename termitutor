@@ -2,5 +2,21 @@
 
 import os
 
+def check(supp, act):
+    if supp == act:
+        return True
+    else:
+        return False
+
+def inp(supp):
+    run = input()
+    os.system(run)
+
+setup = []
+with open(".set", "r") as s:
+	setup = s.readlines()
+	f.close()
+setup = [sets[:-1] for sets in setup]
+
 os.system("clear")
-print("Welcome to Termitutor!\n")
+print("Welcome to TermiTutor!\n")
