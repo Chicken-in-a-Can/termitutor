@@ -9,11 +9,12 @@ def check(supp, act):
         return False
 
 def inp(supp):
+    print("")
     run = input(setup[0])
     if check(supp, run):
         os.system(run)
     else:
-        print("Please type in " + supp + " instead")
+        print("Please type in \"" + supp + "\" instead of \"" + run + "\"")
         inp(supp)
     return True
 
@@ -27,7 +28,7 @@ with open("/home/" + user + "/.termitutor/.set", "r") as s:
 setup = [sets[:-1] for sets in setup]
 
 os.system("clear")
-print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin\n")
+print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin")
 inp("ls")
 
 #Cleaning up
