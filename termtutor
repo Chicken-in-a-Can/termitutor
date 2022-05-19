@@ -1,0 +1,16 @@
+#!/bin/python
+
+import os
+import subprocess
+
+def check(supp, act):
+   return 1
+
+print("Welcome to the Linux terminal tutor")
+os.system('echo "${PS1@P}"')
+ps1 = subprocess.getoutput('echo "${PS1@P}"')
+run = input(ps1)
+os.system(run)
+
+#!/bin/bash
+echo "deez"
