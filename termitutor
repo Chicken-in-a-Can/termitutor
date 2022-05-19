@@ -1,0 +1,6 @@
+#!/bin/python
+
+import os
+
+os.system("clear")
+print("Welcome to Termitutor!\n")
