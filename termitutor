@@ -27,7 +27,7 @@ with open("/home/" + user + "/.termitutor/.set", "r") as s:
 setup = [sets[:-1] for sets in setup]
 
 os.system("clear")
-print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin")
+print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin\n")
 inp("ls")
 
 #Cleaning up

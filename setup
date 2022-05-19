@@ -3,7 +3,7 @@
 currentdir=$(pwd)
 mkdir ~/.termitutor
 cd ~/.termitutor
-echo "[$USER@termitutor $currentdir]$ " > .set
+echo "[$USER@termitutor /home/$USER/.termitutor]$ " > .set
 echo "$currentdir" >> .set
 echo "This is a sample file" > example.txt
 echo "#!/bin/bash
