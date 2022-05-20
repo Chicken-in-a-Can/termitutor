@@ -2,8 +2,29 @@
 
 import os
 
+def addpath(com, num):
+    ret = ""
+    comlist = com.split(" ")
+    comlist[num] = path + comlist[num]
+    for ele in comlist:
+        ret += ele + " "
+    return ret
+
+def fpath(supp, act):
+    match supp:
+        case "ls":
+            act = "ls " + path
+            return act
+        case "cat":
+            act = addpath(act, 1)
+            return act
+        case _:
+            return "Not valid"
+
 def check(supp, act):
-    if supp == act:
+    act += " "
+    actlist = act.split(" ")
+    if supp == actlist[0]:
         return True
     else:
         return False
@@ -11,7 +32,11 @@ def check(supp, act):
 def inp(supp):
     print("")
     run = input(setup[0])
+    if len(run) >= 4:
+        if run[0:4] == "sudo":
+            print("The sudo command allows the user to act as root, allowing for them to make system-wide changes\nThis can be useful, but must be used carefully\n")
     if check(supp, run):
+        run = fpath(supp, run)
         os.system(run)
     else:
         print("Please type in \"" + supp + "\" instead of \"" + run + "\"")
@@ -20,6 +45,7 @@ def inp(supp):
 
 os.system("./setup")
 user = os.getlogin()
+path = "/home/" + user + "/.termitutor/"
 
 setup = []
 with open("/home/" + user + "/.termitutor/.set", "r") as s:
@@ -30,6 +56,9 @@ setup = [sets[:-1] for sets in setup]
 os.system("clear")
 print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin")
 inp("ls")
+print("\nCongratulations! You entered you first Linux terminal command\nThe \"ls\" command lists out the contents of a directory, which is essentially a folder")
+print("Now run \"cat\" and one of the file names shown with \"ls\"\nex. \"cat example.txt\"")
+inp("cat")
 
 #Cleaning up
 os.system("rm -rf /home/" + user + "/.termitutor")
