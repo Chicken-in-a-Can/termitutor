@@ -2,6 +2,8 @@
 
 # Begin Imports
 import os
+import colorama
+from colorama import Fore
 
 # Begin method adding
 # Add file path for file interactions
@@ -39,7 +41,7 @@ def check(supp, act):
 # Have user input data, run preliminary checks
 def inp(supp):
     print("")
-    run = input(setup[0])
+    run = input(Fore.GREEN + setup[0] + Fore.WHITE)
     if len(run) >= 4:
         if run[0:4] == "sudo":
             print("The sudo command allows the user to act as root, allowing for them to make system-wide changes\nThis can be useful, but must be used carefully\n")
