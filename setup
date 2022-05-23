@@ -6,7 +6,7 @@ cd ~/.termitutor
 echo "[$USER@termitutor /home/$USER/.termitutor]$ " > .set
 echo "$currentdir" >> .set
 echo "This is a sample file" > example.txt
-echo "#!/bin/bash
+echo "#!/bin/python
 
 print(\"This is a python file\")" > sample.py
 chmod +x sample.py
