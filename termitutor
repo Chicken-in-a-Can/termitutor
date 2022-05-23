@@ -1,7 +1,10 @@
 #!/bin/python
 
+# Begin Imports
 import os
 
+# Begin method adding
+# Add file path for file interactions
 def addpath(com, num):
     ret = ""
     comlist = com.split(" ")
@@ -10,6 +13,7 @@ def addpath(com, num):
         ret += ele + " "
     return ret
 
+# Decide how to add file path for interactions
 def fpath(supp, act):
     match supp:
         case "ls":
@@ -23,6 +27,7 @@ def fpath(supp, act):
         case _:
             return "Not valid"
 
+# Check to make sure user is running correct commands
 def check(supp, act):
     act += " "
     actlist = act.split(" ")
@@ -31,6 +36,7 @@ def check(supp, act):
     else:
         return False
 
+# Have user input data, run preliminary checks
 def inp(supp):
     print("")
     run = input(setup[0])
@@ -45,6 +51,7 @@ def inp(supp):
         inp(supp)
     return True
 
+#Initialization and variable creation
 os.system("./setup")
 user = os.getlogin()
 path = "/home/" + user + "/.termitutor/"
@@ -56,6 +63,8 @@ with open("/home/" + user + "/.termitutor/.set", "r") as s:
 setup = [sets[:-1] for sets in setup]
 
 os.system("clear")
+
+# Begin actual user prompts
 print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin")
 inp("ls")
 print("\nCongratulations! You entered you first Linux terminal command\nThe \"ls\" command lists out the contents of a directory, which is essentially a folder")
