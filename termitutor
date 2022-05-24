@@ -37,6 +37,14 @@ def fpath(supp, act):
 
 # Check to make sure user is running correct commands
 def check(supp, act):
+    # TODO: Look into this further, as there may be more issues in the future
+    # Potential solution: add a length variables to check()
+    # ex: check(supp, act, suppLen)
+
+    # kinda of a bandaid fix, but it solves the issue of running "cat" without additional parameters causing an out of bounds error
+    if supp == "cat" and len(act.split(" ")) != 2:
+        return False
+
     act += " "
     actlist = act.split(" ")
     if supp == actlist[0]:
@@ -64,6 +72,8 @@ os.system("./setup")
 user = os.getlogin()
 path = "/home/" + user + "/.termitutor/"
 
+# setup is an array which stores the prompt that will be given
+# to the user and the folder in which the program is being run from
 setup = []
 with open("/home/" + user + "/.termitutor/.set", "r") as s:
 	setup = s.readlines()
@@ -71,6 +81,7 @@ with open("/home/" + user + "/.termitutor/.set", "r") as s:
 setup = [sets[:-1] for sets in setup]
 
 os.system("clear")
+print(setup)
 
 # Begin actual user prompts
 print("Welcome to TermiTutor!\nPlease type in \"ls\" to begin")
