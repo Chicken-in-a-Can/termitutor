@@ -26,6 +26,12 @@ def fpath(supp, act):
             return act
         case "echo":
             return act
+        case "touch":
+            act = addpath(act, 1)
+            return act
+        case "nano":
+            act = addpath(act, 1)
+            return act
         case _:
             return "Not valid"
 
@@ -75,6 +81,12 @@ inp("cat")
 print("\nCat prints out the contents of a file. You can use this on almost every file on your machine")
 print("Now type \"echo\" and then whatever piece of text you want, put in quotes")
 inp("echo")
+print("The echo command prints out whatever string you enter")
+print("Now type \"touch\" and then a file name you want to create")
+inp("touch")
+print("The \"touch\" command creates a file. We'll now edit this file")
+print("Type \"nano\" and then the name of the file you created")
+inp("nano")
 
 #Cleaning up
 os.system("rm -rf /home/" + user + "/.termitutor")
